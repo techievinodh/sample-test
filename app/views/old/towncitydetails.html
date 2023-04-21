@@ -1,0 +1,108 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+  
+        Choose an area for flood warnings
+      
+      
+    </h1>
+    
+    
+    
+    
+    
+    
+      <table class="govuk-table" summary="List of areas for this town or city">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">      
+            <th class="govuk-table__header" scope="col">Town or city</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/towncitydetailstable" class="govuk-link" onclick="return testSubmited();">LONDON APPRENTICE, ST. AUSTELL</a></td>
+            </tr>
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/app/olr/towncitydetails?method=selectedTownCity&amp;selectedTownCity=LONDON+COLNEY%2C+ST.+ALBANS" class="govuk-link" onclick="return testSubmited();">LONDON COLNEY, ST. ALBANS</a></td>
+            </tr>
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/app/olr/towncitydetails?method=selectedTownCity&amp;selectedTownCity=LONDON+GATWICK+AIRPORT%2C+GATWICK" class="govuk-link" onclick="return testSubmited();">LONDON GATWICK AIRPORT, GATWICK</a></td>
+            </tr>
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/app/olr/towncitydetails?method=selectedTownCity&amp;selectedTownCity=LONDON+HEATHROW+AIRPORT%2C+HOUNSLOW" class="govuk-link" onclick="return testSubmited();">LONDON HEATHROW AIRPORT, HOUNSLOW</a></td>
+            </tr>
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/app/olr/towncitydetails?method=selectedTownCity&amp;selectedTownCity=LONDON+LUTON+AIRPORT%2C+LUTON" class="govuk-link" onclick="return testSubmited();">LONDON LUTON AIRPORT, LUTON</a></td>
+            </tr>
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/app/olr/towncitydetails?method=selectedTownCity&amp;selectedTownCity=LONDON+STANSTED+AIRPORT%2C+STANSTED" class="govuk-link" onclick="return testSubmited();">LONDON STANSTED AIRPORT, STANSTED</a></td>
+            </tr>
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/app/olr/towncitydetails?method=selectedTownCity&amp;selectedTownCity=LONDON-+postcodes+starting+with+E" class="govuk-link" onclick="return testSubmited();">LONDON- postcodes starting with E</a></td>
+            </tr>
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/app/olr/towncitydetails?method=selectedTownCity&amp;selectedTownCity=LONDON-+postcodes+starting+with+EC" class="govuk-link" onclick="return testSubmited();">LONDON- postcodes starting with EC</a></td>
+            </tr>
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/app/olr/towncitydetails?method=selectedTownCity&amp;selectedTownCity=LONDON-+postcodes+starting+with+N" class="govuk-link" onclick="return testSubmited();">LONDON- postcodes starting with N</a></td>
+            </tr>
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/app/olr/towncitydetails?method=selectedTownCity&amp;selectedTownCity=LONDON-+postcodes+starting+with+NW" class="govuk-link" onclick="return testSubmited();">LONDON- postcodes starting with NW</a></td>
+            </tr>
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/app/olr/towncitydetails?method=selectedTownCity&amp;selectedTownCity=LONDON-+postcodes+starting+with+SE" class="govuk-link" onclick="return testSubmited();">LONDON- postcodes starting with SE</a></td>
+            </tr>
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/app/olr/towncitydetails?method=selectedTownCity&amp;selectedTownCity=LONDON-+postcodes+starting+with+SW" class="govuk-link" onclick="return testSubmited();">LONDON- postcodes starting with SW</a></td>
+            </tr>
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/app/olr/towncitydetails?method=selectedTownCity&amp;selectedTownCity=LONDON-+postcodes+starting+with+W" class="govuk-link" onclick="return testSubmited();">LONDON- postcodes starting with W</a></td>
+            </tr>
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/app/olr/towncitydetails?method=selectedTownCity&amp;selectedTownCity=LONDON-+postcodes+starting+with+WC" class="govuk-link" onclick="return testSubmited();">LONDON- postcodes starting with WC</a></td>
+            </tr>
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/app/olr/towncitydetails?method=selectedTownCity&amp;selectedTownCity=LONDONDERRY%2C+NORTHALLERTON" class="govuk-link" onclick="return testSubmited();">LONDONDERRY, NORTHALLERTON</a></td>
+            </tr>
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/app/olr/towncitydetails?method=selectedTownCity&amp;selectedTownCity=LONDONTHORPE%2C+GRANTHAM" class="govuk-link" onclick="return testSubmited();">LONDONTHORPE, GRANTHAM</a></td>
+            </tr>
+          
+        </tbody>
+      </table>
+    
+    
+
+    </div>
+  </div>
+
+{% endblock %}

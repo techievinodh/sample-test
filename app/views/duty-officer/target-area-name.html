@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Add/edit warning
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="/duty-officer/new-warning" method="post">
+            <h1 class="govuk-heading-l">{{ data['targetAreaCode'] }}</h1>
+            {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+            {% from "govuk/components/button/macro.njk" import govukButton %}
+            {% if data['targetAreaCode'].toLowerCase() == 'abc' %}
+            {{ govukInsetText({
+                text: "No warnings in force"
+            }) }}
+            {{ govukButton({
+                text: "New warning",
+                classes: "govuk-button govuk-button--grey"
+            }) }}
+            {% else %}
+            <div class="govuk-inset-text">
+                <div style="margin-bottom: 30px;">Warning details</div>
+                <div><button type="button" class="govuk-button govuk-button--new mb10" data-module="govuk-button">
+                    Update warning
+                </button></div>
+                <div><button type="button" class="govuk-button govuk-button--warning mb10" data-module="govuk-button">
+                    End warning
+                </button></div>
+            </div>
+            {% endif %}
+            <p><a class="govuk-link" href="#">View past warnings in this area</a></p>
+            {% if data['targetAreaCode'].toLowerCase() == 'abc' %}
+            <p><a class="govuk-link" href="warning-message-draft">View draft</a></p>
+            {% endif %}
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/add-target-area-code.js"></script>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Message options
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form name="messageOptions" class="form" action="/duty-officer/warning-message" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+             What would you like to do with this message?
+            </h1>
+          </legend>
+          <div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" onchange="changeURL(value)" id="message-options" name="message-options" type="radio" value='Send now'>
+              <label class="govuk-label govuk-radios__label" for="message-options">
+                Send message now
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" onchange="changeURL(value)" id="message-options" name="message-options" type="radio" value='Schedule'>
+              <label class="govuk-label govuk-radios__label" for="message-options">
+                Schedule message
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" onchange="changeURL(value)" id="message-options" name="message-options" type="radio" value='Draft'>
+              <label class="govuk-label govuk-radios__label" for="message-options">
+                Save as a draft
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+      {{ govukButton({
+      text: "Continue",
+      classes: "govuk-button govuk-button--grey"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/add-target-area-code.js"></script>
+{% endblock %}

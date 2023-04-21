@@ -1,0 +1,24 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "/upload-file"
+}) }}
+
+<p class="govuk-body align-center">{{data.name}}</p>
+<p class="govuk-body govuk-!-margin-bottom-0 align-center">There are {{data.rows}} records</p>
+<p class="govuk-body govuk-!-margin-bottom-0 align-center">File structure verified</p>
+<div class="align-center">
+{{ govukButton({
+  text: "Start",
+  href: "/import-file"
+}) }}
+</div>
+{% endblock %}

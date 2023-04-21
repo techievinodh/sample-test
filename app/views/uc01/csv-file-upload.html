@@ -1,0 +1,73 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+{% block beforeContent %}
+{{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+{% block content %}
+<div>
+  <h1 class="govuk-heading-l" id="proposition-name">Choose your CSV file</h1>
+</div>
+{{ govukRadios({
+name: "x-y-coords",
+fieldset: {
+legend: {
+text: "Does the file contain addresses or X&Y co-ordinates?",
+isPageHeading: false,
+classes: "govuk-fieldset__legend--m"
+}
+},
+items: [
+{
+value: "Addresses and postcode",
+text: "Addresses and postcode"
+},
+{
+value: "X&Y co-ordinates",
+text: "X&Y co-ordinates"
+}
+]
+}) }}
+
+{% set upload %}
+<h1 class="govuk-notification-banner__heading">Upload file</h1>
+{% endset %}
+<form class="form" action="/uc01/reading" method="post" enctype="multipart/form-data">
+  {{ govukFileUpload({
+  id: "file-upload-1",
+  name: "file-upload-1",
+  label: {
+  html: upload
+  },
+  attributes: {
+  accept: ".csv"
+  },
+  errorMessage: {
+    text: ""
+  }
+  }) }}
+  {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+  {{ govukDetails({
+  summaryText: "My file won’t upload ",
+  text: "--need text--"
+  }) }}
+
+  <button id="submit" class="govuk-button" data-module="govuk-button">
+    Check file and continue</button>
+    
+</form>
+<!-- <div>
+  <a href="/">Download Help File - File Type PDF - File Size 592Kb</a><br>
+  <a href="" id="downloadcsv" >Download CSV Template - File Type CSV - File Size - 255b</a><br>
+</div> -->
+{% block pageScripts %}
+  <script src="/public/javascripts/csv-file-upload.js"></script>
+  <script src="/public/javascripts/downloadSampleCSV.js"></script>
+{% endblock %}
+{% endblock %}

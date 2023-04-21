@@ -1,0 +1,66 @@
+.govuk-button--grey {
+  // background-color: $govuk-secondary-text-colour;
+  background-color: grey;
+}
+
+.govuk-button--new {
+  // background-color: $govuk-link-colour;
+  background-color: blue($color: #000000);
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+input[type='time']::-webkit-calendar-picker-indicator {
+  background: none;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: white;
+}
+
+audio::-webkit-media-controls-mute-button {
+  display: none;
+}
+
+audio::-webkit-media-controls-current-time-display {
+  left: inherit;
+}
+
+.align-center {
+  display: flex;
+  justify-content: center;
+}
+
+.ccms-loader {
+  border: 12px solid #dee0e2;
+  border-radius: 50%;
+  border-top-color: #005ea5;
+  width: 80px;
+  height: 80px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.float-right {
+  float: right
+}
+
+

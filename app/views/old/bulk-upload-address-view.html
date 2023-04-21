@@ -1,0 +1,61 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div>
+ <table id="addressViewTable" class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">      
+      <th scope="col" class="govuk-table__header">BUILDING NUMBER</th>      
+      <th scope="col" class="govuk-table__header">THOROUGHFARE NAME</th>      
+      <th scope="col" class="govuk-table__header">POST TOWN</th>      
+      <th scope="col" class="govuk-table__header">POSTCODE</th>      
+      <th scope="col" class="govuk-table__header">UPRN</th>      
+    </tr>
+  </thead>    
+  <tbody class="govuk-table__body">
+    {% for address in addresses %}
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">{{ address.BUILDING_NUMBER }}</td>
+      <td class="govuk-table__cell">{{ address.THOROUGHFARE_NAME }}</td>
+      <td class="govuk-table__cell">{{ address.POST_TOWN }}</td>
+      <td class="govuk-table__cell">{{ address.POSTCODE }}</td>
+      <td class="govuk-table__cell">{{ address.UPRN }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<!-- {{ govukTable({
+    firstCellIsHeader: false,
+    head: [
+      { 
+        text: "BUILDING NUMBER"
+      },    
+      {
+        text: "THOROUGHFARE NAME"
+      },
+      {
+        text: "POST TOWN"
+      },
+      {
+        text: "POSTCODE"
+      },
+      {
+        text: "UPRN"
+      }         
+    ],
+    rows: addresses
+  }) }}  -->
+<!-- <select id="uploadData" name="uploadData" multiple></select>
+<select id="uploadResults" name="uploadResults" multiple></select> -->
+</div>
+
+{% block pageScripts %}
+  <script src="/public/javascripts/addressView.js"></script>
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+{% block content %}
+<form class="form" action="/uc01/uploading" method="post">
+<h1 class="govuk-heading-l" id="proposition-name">Upload your CSV</h1>
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% set html %}
+  <h3 class="govuk-notification-banner__heading">
+    {{data.filename}}
+  </h3>
+  <p class="govuk-body">There are {{data.rows}} records</p>
+{% endset %}
+{% set validation %}
+{{data.validation}}
+{% endset %}
+{{ govukNotificationBanner({
+  html: html,
+  type: 'success',
+  titleText: validation
+}) }}
+
+<button id="submit" class="govuk-button" data-module="govuk-button">Upload and continue</button>
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Change file",
+  classes: "govuk-button--secondary"
+}) }}
+</form>
+{% endblock %}

@@ -1,0 +1,118 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Check your warnings and details</h1>
+
+      <div class="govuk-body">To change these, use the back link to go to the screen where you entered the details.</div>
+      
+      
+      
+      
+      
+      <table class="govuk-table" summary="Personal details for the flood warning service">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" colspan="2" class="govuk-table__header">The details we have for you</th>          
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">First name</td>
+            <td class="govuk-table__cell">{{ data['firstName'] }}</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Last name</td>
+            <td class="govuk-table__cell">{{ data['surname'] }}</td>
+          </tr>
+             
+            
+            
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">If we need to send you an email that isn't a flood warning, we'll use this email address</td>
+            <td class="wordbreak-xs govuk-table__cell" >{{ data['email1'] }}</td>
+          </tr>    
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">When we write to you we'll use this language</td>
+            <td class="govuk-table__cell">English</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      
+      
+      
+        
+        
+        
+      
+      
+      <table class="govuk-table" summary="Area of interest contact details">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" colspan="5" class="govuk-table__header">
+              The contact numbers and addresses we'll use to send you messages about flooding for  
+              St Austell and Par Rivers
+            </th>
+          </tr>  
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">How we'll send the message</td>
+            <td class="govuk-table__cell">The number or address we'll use</td>
+          </tr>
+        
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">By  Telephone</td>
+            
+              <td class="wordbreak-xs govuk-table__cell">{{ data['telephone1'] }}</td>
+            
+          </tr>
+        
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">By  Text</td>
+            
+              <td class="wordbreak-xs govuk-table__cell">{{ data['sms1'] }}</td>
+            
+          </tr>
+        
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">By  Email</td>
+            
+              <td class="wordbreak-xs govuk-table__cell">{{ data['email1'] }}</td>
+            
+          </tr>
+        
+        </tbody>
+      </table>
+      
+      
+      
+      <form method="post" action="/complete" onsubmit="getElementById('submitButton').disabled=true; return true;"><div><input type="hidden" name="org.apache.struts.taglib.html.TOKEN" value="a3404129afdcc947750c355436727d37" /></div>
+      
+          <p>&nbsp;</p>
+          
+          <p class="govuk-form-group">
+          <button type="submit" class="govuk-button button" data-module="govuk-button">
+             Finish sign up
+             <input type="hidden" name="method" value="newRegistration" />
+          </button>
+          </p>
+            
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

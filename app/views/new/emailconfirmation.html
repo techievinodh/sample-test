@@ -1,0 +1,19 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} GOV.UK page template – {{ serviceName }} – GOV.UK
+Prototype Kit {% endblock %}
+{% block content %}
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="emailVerification">Enter verification code</label>
+
+  <input
+    type="text"
+    name="emailVerification"
+    maxlength="30"
+    size="23"
+    value=""
+    class="govuk-input govuk-!-width-three-quarters"
+    id="emailVerification"
+    title="First name"
+  />
+</div>
+{% endblock %}

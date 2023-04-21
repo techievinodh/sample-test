@@ -1,0 +1,90 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Type
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <h1 class="govuk-heading-xl">Check warning message content</h1>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['severity'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="new-warning">
+            Change
+            <span class="govuk-visually-hidden"> type</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Message
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['warn-msg'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="warning-message">
+            Change
+            <span class="govuk-visually-hidden"> message</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Spoken message
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['spoken-warn-msg'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="spoken-warning">
+            Preview/change
+            <span class="govuk-visually-hidden"> spoken message</span>
+          </a>
+        </dd>
+      </div>
+      {% if data['warn-call'] %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Urgent message
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['warn-call'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="telephone-warning">
+            Preview/change
+            <span class="govuk-visually-hidden"> urgent message</span>
+          </a>
+        </dd>
+      </div>
+      {% endif %}
+    </dl>
+
+    <form action="/duty-officer/warning-variants" method="post" novalidate>
+
+      <input type="hidden" name="answers-checked" value="true">
+
+      <button type="submit" class="govuk-button govuk-button--grey" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}

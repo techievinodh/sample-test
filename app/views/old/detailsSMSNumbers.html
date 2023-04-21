@@ -1,0 +1,60 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        What is your mobile number?
+      </h1>
+      
+      <p class="govuk-body">We recommend you provide mobile numbers where we can reach you 24 hours a day.</p>
+      
+      
+        
+      <form method="post" action="/detailsEmailAddresses" class="olr">
+      
+          <div class="govuk-form-group">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="sms1">Mobile number</label>
+              <div class="govuk-hint">Enter a valid UK telephone number</div>
+              
+              <input type="tel" name="sms1" maxlength="20" size="20" autocomplete="tel" value="" class="govuk-input govuk-!-width-three-quarters " id="sms1" title="Mobile number" />
+            </div>
+          </div>
+          
+          <div class="govuk-form-group">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="sms2">Second mobile number (optional)</label>
+              <div class="govuk-hint"></div>
+              
+              <input type="tel" name="sms2" maxlength="20" size="20" autocomplete="tel" value="" class="govuk-input govuk-!-width-three-quarters " id="sms2" title="Second mobile number (optional)" />
+            </div>
+          </div>
+          
+        
+          <input type="hidden" name="recipIndividual" value="I" />
+        
+        
+        <input type="hidden" name="method" value="checkDetailsSMSNumbers" />
+      
+        <p class="govuk-form-group">
+          <button type="submit" class="govuk-button button" data-module="govuk-button">
+            Continue
+          </button>
+        </p>
+      
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

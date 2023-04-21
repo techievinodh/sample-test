@@ -1,0 +1,19 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+{% block content %}
+<h1 class="govuk-heading-l" id="proposition-name">Uploading CSV, please wait</h1>
+
+<div class="ccms-loader"></div>
+{% block pageScripts %}
+  <script src="/public/javascripts/uploading.js"></script>
+{% endblock %}
+{% endblock %}

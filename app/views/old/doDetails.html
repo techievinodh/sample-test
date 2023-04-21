@@ -1,0 +1,118 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">What is your name and email address?</h1>
+
+<div class="govuk-body">
+  
+
+
+
+  <p>We'll send you messages about flooding for this area</p>
+    <h4 class="govuk-heading-s">
+      St Austell and Par Rivers<br />
+    </h4>
+    Flood Alert<br />
+ 		<div class="govuk-inset-text">
+   		<p>Pentewan, St Blazey, Luxulyan and Mevagissey<br /></p>
+ 		</div>
+
+
+
+  <p><b>We can't send flood warnings for this address. The only service currently available to you is flood alerts.</b></p><p>Flood alert messages give an early alert of possible flooding. They are sent more often than flood warnings.</p>
+
+    
+
+
+<p>
+  
+  <a href="/app/olr/locationList" class="govuk-link--no-visited-state" id="changeLocationLink" title="Change location">Change location</a>
+</p>
+
+
+
+  
+
+  <p>You are only signing up for flood alert messages.</p>
+
+
+</div>
+
+<form method="post" action="/detailsAlertmethods" class="olr">
+
+		<div class="govuk-body">
+		  <p>
+		  
+		    
+		  
+		  
+			</p>
+		</div>
+
+		<input type="hidden" name="title" value="1" id="title" />	
+
+
+    <div class="govuk-form-group">
+          <label class="govuk-label" for="firstName">First name</label>
+          
+          <input type="text" name="firstName" maxlength="30" size="23" value="" class="govuk-input govuk-!-width-three-quarters " id="firstName" title="First name" /> 
+    </div>
+	    
+    <div class="govuk-form-group">
+          <label class="govuk-label" for="surname">Last name</label>
+          
+          <input type="text" name="surname" maxlength="30" size="23" value="" class="govuk-input govuk-!-width-three-quarters " id="surname" title="Last name" /> 
+    </div>
+	  	    
+	  
+	    <input type="hidden" name="company" value="" id="company" />
+	    <input type="hidden" name="jobTitle" value="" id="jobTitle" />
+	  
+
+	  
+	  
+    <div class="govuk-form-group">
+          <label class="govuk-label" for="email">Email</label>
+          <div class="govuk-hint">This email address will only be used to sign into your account. We'll send a confirmation to this email address</div>
+          
+          <input type="text" name="email" maxlength="254" size="33" autocomplete="email" spellcheck="false" inputmode="email" value="" class="govuk-input govuk-!-width-three-quarters " id="email" title="Email" />
+    </div>
+	  
+
+
+
+		<input type="hidden" name="language" value="1" />
+
+	  
+	  
+	    <input type="hidden" name="recipIndividual" value="I" />
+	  
+	  
+	  <input type="hidden" name="method" value="checkDetails" />
+
+
+	<p class="govuk-form-group">
+	  <button type="submit" class="govuk-button button" data-module="govuk-button">
+   	  Continue
+    </button>
+  </p>
+
+</form>
+
+
+    </div>
+  </div>
+
+{% endblock %}

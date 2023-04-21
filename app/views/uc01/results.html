@@ -1,0 +1,112 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+{% block content %}
+<h1 class="govuk-heading-m" id="proposition-name">View matched and unmatched locations</h1>
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+<div id="fullmatch" hidden>{{data.fullMatch}}</div>
+{% set html %}
+  <p>
+    File: {{data.filename}}
+  </p>
+  <p>Duration: {% if data.duration.h > 0 %} {{data.duration.h}} {% if data.duration.h > 1 %}hours{% else %}hour{% endif %} {% endif %}
+    {% if data.duration.m > 0 %} {{data.duration.m}} {% if data.duration.m > 1 %}minutes{% else %}minute{% endif %} {% endif %}
+    {% if data.duration.s > 0 %} {{data.duration.s.toFixed(2)}} {% if data.duration.s > 1 %}seconds{% else %}second{% endif %} {% endif %} 
+    </p>
+{% endset %}
+
+{{ govukInsetText({
+  html: html
+}) }}
+
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% set fullMatch %}
+  <p>{{data.fullMatch}}</p>
+{% endset %}
+{% set partialMatch %}
+<p>{{data.partialMatch}}</p>
+{% endset %}
+{% set noMatch %}
+<p>{{data.noMatch}}</p>
+  {% endset %}
+{% set previewfull %}
+  <a id="prevfull" href="/uc01/preview-result-fully">Preview results</a>
+{% endset %}
+{% set previewpart %}
+  <a href="/uc01/preview-result-partially">Preview results</a>
+{% endset %}
+{% set previewno %}
+  <a href="/uc01/preview-result-no-match">Preview results</a>
+{% endset %}
+{% set csvfull %}
+  <a href="http://localhost:5000/export?exportType=full&filename={{data.filename}}">Download CSV</a>
+{% endset %}
+{% set csvpart %}
+  <a href="http://localhost:5000/export?exportType=partial&filename={{data.filename}}">Download CSV</a>
+{% endset %}
+{% set csvno %}
+  <a href="http://localhost:5000/export?exportType=nomatch&filename={{data.filename}}">Download CSV</a>
+{% endset %}
+
+{{ govukTable({
+  caption: "Results",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  rows: [
+    [
+      {
+        text: "Fully matched"
+      },
+      {
+        html: fullMatch
+      },
+      {
+        html: previewfull
+      },
+      {
+        html: csvfull
+      }
+    ],
+    [
+      {
+        text: "Partially matched"
+      },
+      {
+        html: partialMatch
+      },
+      {
+        html: previewpart
+      },
+      {
+        html: csvpart
+      }
+    ],
+    [
+      {
+        text: "No matched found"
+      },
+      {
+        html: noMatch
+      },
+      {
+        html: previewno
+      },
+      {
+        html: csvno
+      }
+    ]
+  ]
+}) }}
+{% block pageScripts %}
+  <script src="/public/javascripts/results.js"></script>
+{% endblock %}
+{% endblock %}

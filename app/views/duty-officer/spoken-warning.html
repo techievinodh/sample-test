@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Spoken warning
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="/duty-officer/telephone-warning" method="post">
+      <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="1500">
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="spoken-warn-msg">
+              Spoken warning message
+            </label>
+          </h1>
+          <textarea class="govuk-textarea govuk-js-character-count" id="spoken-warn-msg" name="spoken-warn-msg" rows="5" aria-describedby="spoken-warn-msg-info spoken-warn-msg-hint"></textarea>
+        </div>
+        <div id="spoken-warn-msg-info" class="govuk-hint govuk-character-count__message">
+        </div>
+        <audio controls>
+        </audio>
+      </div>
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+      {{ govukButton({
+      text: "Continue",
+      classes: "govuk-button govuk-button--grey"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/add-target-area-code.js"></script>
+{% endblock %}

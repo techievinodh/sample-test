@@ -1,0 +1,40 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Add Target Area
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="/duty-officer/target-area-name" method="post">
+      <p>{% from "govuk/components/input/macro.njk" import govukInput %}
+        {{ govukInput({
+        label: {
+        text: "Target area code",
+        classes: "govuk-label--l",
+        isPageHeading: true
+        },
+        id: "targetAreaCode",
+        name: "targetAreaCode",
+        classes: "govuk-input--width-20"
+        }) }}
+        <a class="govuk-link" href="#">Find area by name</a>
+      </p>
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+      {{ govukButton({
+      text: "Continue",
+      classes: "govuk-button govuk-button--grey"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/add-target-area-code.js"></script>
+{% endblock %}

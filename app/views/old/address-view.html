@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Address</th>
+      <th scope="col" class="govuk-table__header">Matching Rating</th>
+      <th scope="col" class="govuk-table__header">OS Matching Result</th>
+      <th scope="col" class="govuk-table__header">OS Matching Score</th>
+      <th scope="col" class="govuk-table__header">OS Coordinates X,Y</th>
+      <th scope="col" class="govuk-table__header">Warning Area Matching</th>
+      <th scope="col" class="govuk-table__header">Warning Area Code</th>
+      <th scope="col" class="govuk-table__header">Warning Area Name</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    {% for address in addresses %}
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">{{ address["SEARCH_ADDRESS"] }}</td>
+      <td class="govuk-table__cell">{{address["MATCHING_RATING"]}}</td>
+      <td class="govuk-table__cell">{{ address["OS_MATCHING_RESULT"] }}</td>
+      <td class="govuk-table__cell">{{address["OS_MATCHING_SCORE"]}}</td>
+      <td class="govuk-table__cell">{{address["X_COORDINATE"]}},{{address["Y_COORDINATE"]}}</td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{{ govukPagination({
+  previous: {
+    href: "#"
+  },
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      href: "#"
+    },
+    {
+      number: 2,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }}
+
+
+{% endblock %}

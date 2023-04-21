@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">How would you like to get messages about flooding?</h1>
+
+  <div class="govuk-body">
+    
+	    <p class="govuk-body">We recommend you provide contact details where we can reach you 24 hours a day on your telephone and by email, so we have the best chance to alert you.</p>
+	  
+	  
+	</div>
+
+  <form method="post" action="/detailsAlertMethodsTele" class="olr">
+    <div class="govuk-form-group">
+	    <div class="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            
+            
+              <input class="govuk-checkboxes__input" id="alertmethodTel" name="alertmethodTel" type="checkbox" />
+            
+            <label class="govuk-label govuk-checkboxes__label" for="alertmethodTel">Telephone</label>
+          </div> 
+          <input type="hidden" name="alertmethodTel" value>
+	  
+          <div class="govuk-checkboxes__item">
+            
+            
+              <input class="govuk-checkboxes__input" id="alertmethodText" name="alertmethodText" type="checkbox" />
+            
+            <label class="govuk-label govuk-checkboxes__label" for="alertmethodText">Text</label>
+          </div> 
+          <input type="hidden" name="alertmethodText" value>
+
+          <div class="govuk-checkboxes__item">
+            
+            
+              <input class="govuk-checkboxes__input" id="alertmethodEmail" name="alertmethodEmail" type="checkbox" />
+            
+            <label class="govuk-label govuk-checkboxes__label" for="alertmethodEmail">Email</label>
+          </div> 
+          <input type="hidden" name="alertmethodEmail" value>
+
+      </div>
+    </div>
+
+  <input type="hidden" name="method" value="handleAlertMethods" />
+
+  <p class="govuk-form-group">
+    <button type="submit" class="govuk-button button" data-module="govuk-button">
+      Continue
+    </button>
+  </p>
+	    
+</form>
+
+    </div>
+  </div>
+
+{% endblock %}

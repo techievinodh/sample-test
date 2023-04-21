@@ -1,0 +1,34 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block content %}
+
+{% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "/"
+}) }}
+<div class="align-center">
+<form class="form" action="/old/process-file" method="post" enctype="multipart/form-data">
+  {{ govukFileUpload({
+    id: "file-upload-1",
+    name: "file-upload-1",
+    label: {
+      text: "Upload a file"
+    }
+  }) }} 
+
+  <button id="submit" class="govuk-button" data-module="govuk-button">Submit</button>
+
+</form>
+</div>
+
+{% endblock %}

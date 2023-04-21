@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Check the terms and conditions</h1>
+
+
+
+<div class="govuk-body">
+  <h2 class="govuk-heading-m">What we will do</h2>
+			<p>We'll make all reasonable efforts to send the flood warnings you have asked for, but we can't guarantee they will be sent or arrive. Warnings may be sent at any time of the day or night.</p>
+			<h2 class="govuk-heading-m">We do not:</h2>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>accept responsibility if you fail to receive a warning</li>
+				<li>guarantee that our online or phone services will be available</li>
+				<li>accept responsibility for any loss, damage or costs incurred by you caused by flooding, or by issuing or failing to issue warnings, except where the law says we must</li>
+			</ul>
+			<h2 class="govuk-heading-m">You are responsible for:</h2>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>providing us with accurate contact details</li>
+				<li>telling us about any changes to your contact information</li>
+			</ul>
+			<h2 class="govuk-heading-m">How we will use your personal information</h2>
+			<p>We may use the personal information you provide to:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>send you the warnings you've asked for</li>
+				<li>send you a small number of service or administrative messages</li>
+				<li>help emergency services and local councils respond to flooding</li>
+				<li>help with our work on flood warning and flood risk management</li>
+			</ul>
+			<p>We may give your information to our agents or representatives, so they can do any of these things for us. And we may share your information with other organisations if the law says we must.</p>
+			<p>The Environment Agency manages the flood warning systems. Our <a class="govuk-link" target="_blank" href="https://www.fws.environment-agency.gov.uk/edw/privacy">privacy notice (opens new 
+window)</a> explains how we treat your personal information.</p>
+			<p>Natural Resources Wales use the same systems and will have access to your personal information if you ask for a service in Wales. Read how Natural Resources Wales <a class="govuk-link" target="_blank"href="https://naturalresources.wales/privacy?lang=en">treats your personal information (opens new window)</a>.</p>
+
+</div>
+
+<form method="post" action="/summary" class="olr">
+    <div class="govuk-form-group">
+    <div class="govuk-form-group">
+      
+
+	    <div class="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="termsAccepted" name="termsAccepted" type="checkbox" />
+          <label class="govuk-label govuk-checkboxes__label" for="termsAccepted">I agree to these terms and conditions</label>
+        </div> 
+      </div>
+    </div>
+    </div>
+
+  <p class="govuk-form-group">
+    <button type="submit" class="govuk-button button" data-module="govuk-button">
+      Continue
+    </button>
+  </p>
+  
+  <input type="hidden" name="termsAccepted" value="" />
+
+</form>
+
+    </div>
+  </div>
+
+{% endblock %}

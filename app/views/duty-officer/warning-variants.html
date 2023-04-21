@@ -1,0 +1,44 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Variants
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Check warning variants
+    </h1>
+
+    <p><a class="govuk-link" href="#">View email message</a></p>
+    <p><a class="govuk-link" href="#">Listen to spoken message</a></p>
+    <p><a class="govuk-link" href="#">Listen to urgent spoken message</a></p>
+    <p><div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste" name="variantCheck" type="checkbox" value="true">
+        <label class="govuk-label govuk-checkboxes__label" for="variantCheck">
+          Variants have been checked
+        </label>
+      </div>
+    </div></p>
+    <form action="/duty-officer/warning-message-options" method="post" novalidate>
+
+      <input type="hidden" name="answers-checked" value="true">
+
+      <button type="submit" class="govuk-button govuk-button--grey" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+    <p><a class="govuk-link" href="warning-summary">Make changes to message content</a></p>
+  </div>
+</div>
+
+{% endblock %}

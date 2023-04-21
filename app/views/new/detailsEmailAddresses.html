@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        What is your email address?
+      </h1>
+      
+      <p class="govuk-body">We recommend you provide email addresses where we can reach you 24 hours a day.</p>
+      
+      
+        
+      <form method="post" action="/terms" class="olr">
+      
+          <div class="govuk-form-group">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="email1">Email address</label>
+              
+              <input type="text" name="email1" maxlength="254" size="33" autocomplete="email" spellcheck="false" inputmode="email" value="asdf@asdf.com" class="govuk-input govuk-!-width-three-quarters " id="email1" title="Email address" />
+            </div>
+          </div>
+          
+          <div class="govuk-form-group">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="email2">Second email address (optional)</label>
+              
+              <input value="{{ data['email2'] }}" type="text" name="email2" maxlength="254" size="33" spellcheck="false" inputmode="email" class="govuk-input govuk-!-width-three-quarters " id="email2" title="Second email address (optional)" />
+            </div>
+          </div>
+          
+        
+          <input type="hidden" name="recipIndividual" value="I" />
+        
+        
+        <input type="hidden" name="method" value="checkDetailsEmailAddresses" />
+      
+        <p class="govuk-form-group">
+          <button type="submit" class="govuk-button button" data-module="govuk-button">
+            Continue
+          </button>
+        </p>
+      
+      </form> 
+
+    </div>
+  </div>
+
+{% endblock %}

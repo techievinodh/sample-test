@@ -1,0 +1,60 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block pageScripts %}
+  <script src="/public/javascripts/preview-result-partially.js"></script>
+{% endblock %}
+{% block content %}
+<h1 class="govuk-heading-m" id="proposition-name">Preview your partially matched locations</h1>
+<p class="govuk-body govuk-!-margin-bottom-0">Below is a snippet of the addresses that we were able to <b>find partial match to  warning areas</b>.</p>
+<p>You can download the CSV files to view the full results.</p>
+<div style="border: 1px solid #B1B4B6;">
+  <div hidden="true" id="fileName">{{ data.filename }}</div>
+<table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m govuk-!-margin-4" style="font-size: 1.1875rem;">Partially matched (preview)
+      <span><a href="http://localhost:5000/export?exportType=partial" class="govuk-link float-right">Download CSV</a></span>
+      <span><a href="#" class="govuk-link float-right" style="margin-right: 25px;">View on a map</a></span>
+      
+    </caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header govuk-!-padding-left-4">Input(address)</th>
+      <th scope="col" class="govuk-table__header ">Matching score</th>
+      <th scope="col" class="govuk-table__header">OS Coordinates(X,Y)</th>
+      <th scope="col" class="govuk-table__header">Warning area match</th>
+      <th scope="col" class="govuk-table__header">Warning area code</th>
+      <!-- <th scope="col" class="govuk-table__header">Warning area name</th> -->
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body"  id="govuk-table__body">
+    {% for address in addresses %}
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-!-padding-left-4" class="govuk-table__header">{{address.ADDRESS}}</th>
+      <td class="govuk-table__cell">{{address.OS_MATCHING_SCORE}}</td>
+      <td class="govuk-table__cell">{{address.X_COORDINATE}},{{address.Y_COORDINATE}}</td>
+      <td></td>
+      <td></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{{ govukPagination({
+  previous: {
+    href: "javascript:prevPage()"
+  },
+  next: {
+    href: "javascript:nextPage()"
+  }
+}) }}
+{% endblock %}

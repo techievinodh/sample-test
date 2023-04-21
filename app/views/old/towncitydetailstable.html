@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/url/of/next/page" method="post">
+        <h1 class="govuk-heading-l">
+          Areas you can get warnings for
+      </h1>
+         
+        <table class="govuk-table" summary="List of areas you can get warnings for">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col">Area</th>
+              <th class="govuk-table__header" scope="col">Warning type</th>
+              <th class="govuk-table__header" scope="col">Map</th>
+              <th class="govuk-table__header" scope="col">Sign up</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+           
+            <tr class="govuk-table__row">
+              <td class="wordbreak-xs govuk-table__cell">
+                St Austell and Par Rivers
+              </td>
+              <td class="wordbreak-xs govuk-table__cell">
+                Flood Alert
+              </td>        
+              <td class="govuk-table__cell">
+                <a href="/app/olr/viewmap?taId=6606d6780a00190a2f7f5c0fdce06494" class="govuk-link">View map</a>
+              </td>
+              <td class="govuk-table__cell">
+                <a href="/doDetails" class="govuk-link">Sign up for this area</a>
+              </td>
+            </tr>
+          
+          </tbody>
+        </table>
+      
+      
+      <br />
+      
+      
+        <div class="govuk-body">If you wish to amend your search results,
+          
+          
+          
+            <a href="/app/olr/townCityList?method=townCityList" class="govuk-link--no-visited-state">Change</a>
+          
+        </div>
+      
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

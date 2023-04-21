@@ -1,0 +1,36 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+{{ serviceName }}
+{% endblock %}
+
+
+
+
+{% block content %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full align-center">
+        {{ govukButton({
+        text: "Create new import",
+        href: "/upload-file"
+        }) }}
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full align-center">
+        {{ govukButton({
+        text: "List jobs",
+        href:"/list-jobs",
+        classes: "govuk-button--secondary"
+        }) }}
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

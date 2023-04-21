@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<form class="form" action="/uc01/upload-file-nav" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+      
+      {{ govukRadios({
+        name: "upload-your-addresses",
+        fieldset: {
+          legend: {
+            text: "How do you want to upload your addresses?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Upload with CSV file",
+            text: "Upload with CSV file"
+          },
+          {
+            value: "Add individually",
+            text: "Add individually"
+          }
+        ]
+      }) }}
+
+        {{ govukButton({
+          text: "Continue",
+          type: "submit"
+        }) }}
+
+      
+
+    </div>
+  </div>
+</form>
+
+{% endblock %}

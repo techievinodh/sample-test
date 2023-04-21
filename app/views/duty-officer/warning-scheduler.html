@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Scheduler
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        When should this warning be sent?
+      </h1>
+      <form class="form" action="/duty-officer/warning-reminder" method="post">
+        <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+    <div class="govuk-date-input" id="passport-issued">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+            Date
+          </label>
+           <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="number" inputmode="numeric">
+         </div>
+       </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="number" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="number" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+    <div class="govuk-time-input" id="passport-issued">
+      <div class="govuk-time-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-time-input__label" for="passport-issued-time">
+            Time
+          </label>
+          <input class="govuk-input govuk-time-input__input govuk-input--width-6" id="passport-issued-time" name="passport-issued-time" type="time" inputmode="numeric">
+        </div>
+      </div>
+
+    </div>
+  </fieldset>
+</div>
+
+
+
+
+        <button class="govuk-button" data-module="govuk-button">Schedule warning</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

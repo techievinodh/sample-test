@@ -1,0 +1,34 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "/import-file"
+}) }}
+
+<p class="govuk-body align-center">Sample.csv</p>
+<p class="govuk-body align-center">Duration: 2min 05sec</p>
+<p class="govuk-body govuk-!-margin-bottom-0 align-center">Reports</p>
+<p class="govuk-body govuk-!-margin-bottom-0 align-center">Fully matched(RATING=2)</p>
+<p class="govuk-body align-center">#Records:{{data.fullMatch}}</p>
+<p class="govuk-body govuk-!-margin-bottom-0 align-center">Partially matched</li>
+<p class="govuk-body govuk-!-margin-bottom-0 align-center">(RATING=1)</li>
+<p class="govuk-body align-center">#Records:{{data.partialMatch}}</p>
+<p class="govuk-body govuk-!-margin-bottom-0 align-center">No match(RATING=0)</li>
+<p class="govuk-body align-center">#Records:{{data.noMatch}}</p>
+
+<a href="http://localhost:5000/export?exportType=full">Download Fully Matched Address CSV</a><br>
+<a href="http://localhost:5000/export?exportType=partial">Download Partially Matched Address CSV</a><br>
+<a href="http://localhost:5000/export?exportType=nomatch">Download No Matched Address CSV</a>
+
+<!-- {% block pageScripts %}
+  <script src="/public/javascripts/matchView.js"></script>
+{% endblock %} -->
+
+{% endblock %}

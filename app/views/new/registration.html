@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} GOV.UK page template – {{ serviceName }} – GOV.UK
+Prototype Kit {% endblock %} {% block content %}
+<h1 class="govuk-heading-l">What is your name and email address?</h1>
+
+<form method="post" action="/new/emailconfirmation" class="olr">
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="firstName">First name</label>
+
+    <input
+      type="text"
+      name="firstName"
+      maxlength="30"
+      size="23"
+      value=""
+      class="govuk-input govuk-!-width-three-quarters"
+      id="firstName"
+      title="First name"
+    />
+  </div>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="surname">Last name</label>
+
+    <input
+      type="text"
+      name="surname"
+      maxlength="30"
+      size="23"
+      value=""
+      class="govuk-input govuk-!-width-three-quarters"
+      id="surname"
+      title="Last name"
+    />
+  </div>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="email">Email</label>
+    <div class="govuk-hint">
+      This email address will only be used to sign into your account. We'll send a confirmation to this email
+      address
+    </div>
+
+    <input
+      type="text"
+      name="email"
+      maxlength="254"
+      size="33"
+      autocomplete="email"
+      spellcheck="false"
+      inputmode="email"
+      value=""
+      class="govuk-input govuk-!-width-three-quarters"
+      id="email"
+      title="Email"
+    />
+  </div>
+
+  <p class="govuk-form-group">
+    <button type="submit" class="govuk-button button" data-module="govuk-button">Continue</button>
+  </p>
+</form>
+
+{% endblock %}

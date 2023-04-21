@@ -1,0 +1,61 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-error-summary" data-module="govuk-error-summary" hidden="true">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#">We can't find the town or city you entered. Please check what you entered and try again. If you searched for a place name that includes accents or punctuation, please try again using the first part of the area without accents.</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <h1 id="addTitle" class="govuk-heading-l">
+        Check if you can get flood warnings for your area
+      </h1>
+
+      <form class="form" action="/towncitydetails" method="post">
+
+        <p id="addSubTitle">We'll find the nearest flood risk areas that we give warnings for.</p>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="town" id="addLbl">
+            Town or city
+          </label>
+
+          <input class="govuk-input govuk-input--width-20" id="town" name="town" type="text">
+
+        </div>
+
+        <button id="submit" class="govuk-button" data-module="govuk-button">Find town or city</button>
+
+        <div id="loader" class="loader"></div>
+        <a href="/bulk-upload">Upload bulk addresses</a>
+      </form>
+
+
+    </div>
+  </div>
+
+  {% block pageScripts %}
+  <script src="/public/javascripts/address.js"></script>
+{% endblock %}
+{% endblock %}

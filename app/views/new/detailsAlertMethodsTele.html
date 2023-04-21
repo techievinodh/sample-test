@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        What is your telephone number?
+      </h1>
+      
+      <p class="govuk-body">We recommend you provide landline or mobile numbers where we can reach you 24 hours a day.</p>
+      <form method="post" action="/detailsSMSNumbers" class="olr">
+      
+          
+          <div class="govuk-body">
+              
+          </div>
+          
+          <div class="govuk-form-group">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="telephone1">Telephone number</label>
+              <div class="govuk-hint">Enter a valid UK telephone number</div>
+              
+              <input type="tel" name="telephone1" maxlength="20" size="20" autocomplete="tel" value="" class="govuk-input govuk-!-width-three-quarters " id="telephone1" title="Telephone number" />
+            </div>
+          </div>
+          
+          <div class="govuk-form-group">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="telephone2">Second telephone number (optional)</label>
+              <div class="govuk-hint"></div>
+              
+              <input type="tel" name="telephone2" maxlength="20" size="20" autocomplete="tel" value="" class="govuk-input govuk-!-width-three-quarters " id="telephone2" title="Second telephone number (optional)" />
+            </div>
+          </div>
+      
+        
+          <input type="hidden" name="recipIndividual" value="I" />
+        
+        
+        <input type="hidden" name="method" value="checkDetailsTelephoneNumbers" />
+      
+        <p class="govuk-form-group">
+          <button type="submit" class="govuk-button button" data-module="govuk-button">
+            Continue
+          </button>
+        </p>
+      
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
